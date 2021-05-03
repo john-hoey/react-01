@@ -35,10 +35,6 @@ const App = () => {
     console.log(expense);
   };
 
-  const addFilterHandler = (filter) => {
-    filter = filter;
-  };
-
   // const para = document.createElement("p");
   // para.textContent = "This is also visible";
   // document.getElementById("root").append(para);
@@ -65,7 +61,7 @@ const App = () => {
         amount={expenses[3].amount}
         date={expenses[3].date}
       ></ExpenseItem> */}
-      <Expenses items={expenses} onSelectFilter={addFilterHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 };
