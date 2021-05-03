@@ -28,9 +28,15 @@ const App = () => {
     },
   ];
 
+  const filter = "";
+
   const addExpenseHandler = (expense) => {
     console.log("In App.js");
     console.log(expense);
+  };
+
+  const addFilterHandler = (filter) => {
+    filter = filter;
   };
 
   // const para = document.createElement("p");
@@ -59,7 +65,7 @@ const App = () => {
         amount={expenses[3].amount}
         date={expenses[3].date}
       ></ExpenseItem> */}
-      <Expenses items={expenses} />
+      <Expenses items={expenses} onSelectFilter={addFilterHandler} />
     </div>
   );
 };
