@@ -1,6 +1,8 @@
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+import NewExpense from "./components/NewExpense/NewExpense";
+
+const App = () => {
   // const expensesTest = [
   //   { title: "Car Insurance", amount: 294.67, date: new Date(2021, 3, 29) },
   // ];
@@ -25,13 +27,18 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   // const para = document.createElement("p");
   // para.textContent = "This is also visible";
   // document.getElementById("root").append(para);
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible!</p>
+      <NewExpense onAddExpense={addExpenseHandler} />
       {/* <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -55,6 +62,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
