@@ -6,9 +6,7 @@ const ExpensesFilter = (props) => {
   const filterChangeHandler = (event) => {
     event.preventDefault();
     console.log(event.target.value);
-    // const selectData = {
-    //   year: event.target.value,
-    // };
+
     props.onChangeFilter(event.target.value);
   };
 

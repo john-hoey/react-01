@@ -5,61 +5,20 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
-
-  // const [formData, setFormData] = useState({
-  //   title: "stuff",
-  //   amount: "2143",
-  //   date: "2020-04-21",
-  // });
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
     console.log(enteredTitle);
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: event.target.value };
-    // });
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // });
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
     console.log(enteredAmount);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredAmount: event.target.value };
-    // });
   };
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
     console.log(enteredDate);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.user.value,
-    // });
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredDate: event.target.value };
-    // });
   };
-
-  // const formDataChangeHandler = () => {
-  //   setFormData({
-  //     title: enteredTitle,
-  //     amount: enteredAmount,
-  //     date: enteredDate,
-  //   });
-  //   console.log(formData);
-  // };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -108,7 +67,6 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        {/* <button type="submit" onSubmit={formDataChangeHandler}> */}
         <button type="submit">Add Expense</button>
       </div>
     </form>
