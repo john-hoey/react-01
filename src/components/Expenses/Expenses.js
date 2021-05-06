@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ExpensesYearFilter from "./ExpensesYearFilter";
-import ExpensesPriceSort from "./ExpensesPriceSort";
+// import ExpensesPriceSort from "./ExpensesPriceSort";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 
@@ -8,21 +8,25 @@ import "./Expenses.css";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2021");
-  const [isFiltered, setIsFiltered] = useState(false);
-  const [priceSort, setPriceSort] = useState("");
-  const [isSorted, setIsSorted] = useState(false);
+  // const [isFiltered, setIsFiltered] = useState(false);
+  // const [priceSort, setPriceSort] = useState("");
+  // const [isSorted, setIsSorted] = useState(false);
 
   const filterYearChangeHandler = (selectedYear) => {
     console.log("Expenses.js");
     console.log(selectedYear);
     setFilteredYear(selectedYear);
-    setIsFiltered(true);
+    // setIsFiltered(true);
   };
 
-  const sortPriceChangeHandler = (selectedSort) => {
-    setPriceSort(selectedSort);
-    setIsSorted(true);
-  };
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+
+  // const sortPriceChangeHandler = (selectedSort) => {
+  //   setPriceSort(selectedSort);
+  //   setIsSorted(true);
+  // };
 
   return (
     <div>
@@ -31,10 +35,18 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeYearFilter={filterYearChangeHandler}
         />
-        <ExpensesPriceSort
+        {filteredExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+        {/* <ExpensesPriceSort
           selected={priceSort}
           onChangePriceSort={sortPriceChangeHandler}
-        />
+        /> */}
         {/* {props.items
           .filter((expense) => expense.date.getFullYear() === filteredYear)
           .map((expense) => (
@@ -47,7 +59,7 @@ const Expenses = (props) => {
           ))} */}
         {/* {props.items.map((expense) => {
           console.log(expense.date.getFullYear()); */}
-        {isFiltered
+        {/* {isFiltered
           ? props.items
               .filter(
                 (expense) =>
@@ -70,8 +82,8 @@ const Expenses = (props) => {
                 date={expense.date}
               />
             ))}
-        )
-        {isSorted
+        ) */}
+        {/* {isSorted
           ? props.items
               .sort((a, b) => (a.amount - b.amount ? 1 : -1))
               .map((sortedHigh2LowPrice) => {
@@ -95,7 +107,7 @@ const Expenses = (props) => {
                     date={sortedLow2HighPrice.date}
                   />
                 );
-              })}
+              })} */}
         {/* {props.items.map((expense) => {
           console.log(expense.date.getFullYear());
           return (
